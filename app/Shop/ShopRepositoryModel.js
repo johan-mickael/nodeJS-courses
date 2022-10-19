@@ -8,10 +8,8 @@ export const ShopSchema = new mongoose.Schema({
     ownerName: String
 })
 
-const ShopModel = mongoose.model('shops', ShopSchema);
-
-const shop_obj = new ShopModel();
-
-export const getAll = () => {
-    return db.collection('shops').find({}).toArray()
+export class ShopRepository {
+    async getAll() {
+        return await mongoose.model('shops', ShopSchema).find();
+    }
 }

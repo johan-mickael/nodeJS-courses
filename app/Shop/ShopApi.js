@@ -3,14 +3,10 @@ import { Shop } from './Shop.js'
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     const shop = new Shop();
-    shop.getAll().then((data) => {
-        res.send(data)
-    }, (err) => {
-        console.log(err);
-        throw err;
-    })
+    const data = await shop.getAll();
+    res.send(data);
 });
 
 export {

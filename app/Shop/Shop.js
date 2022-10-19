@@ -1,4 +1,4 @@
-import { getAll as getAllShopsRepository } from './ShopRepositoryModel.js'
+import { ShopRepository } from './ShopRepositoryModel.js'
 
 export class Shop {
     id
@@ -6,6 +6,7 @@ export class Shop {
     name
     address
     ownerName
+    shopRepository
 
     Shop
         (id, articles, nom, adresse) {
@@ -13,11 +14,13 @@ export class Shop {
     }
 
     constructor() {
-
+        this.shopRepository = new ShopRepository();
     }
 
     getAll() {
-        return getAllShopsRepository();
+        const data = Promise.resolve(this.shopRepository.getAll());
+        console.log(Promise.resolve(data))
+        return data;
     }
 
     getArticle(id) {
