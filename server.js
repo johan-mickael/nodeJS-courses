@@ -1,7 +1,6 @@
-require('dotenv').config();
-const http = require('http');
-const _app = require('./app');
-const app = _app.app
+import { } from 'dotenv/config'
+import * as http from 'http'
+import { app, connection } from './app.js'
 
 const normalizePort = val => {
   const port = parseInt(val, 10);
@@ -42,7 +41,7 @@ server.on('listening', () => {
   const address = server.address();
   const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
   console.log('Listening on ' + bind);
-  _app.connection();
+  connection();
 });
 
 server.listen(port);

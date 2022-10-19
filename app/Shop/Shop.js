@@ -1,17 +1,23 @@
+import { getAll as getAllShopsRepository } from './ShopRepositoryModel.js'
+
 export class Shop {
     id
     articles
-    nom
-    adresse
-    nomDuProprietaire
+    name
+    address
+    ownerName
 
     Shop
         (id, articles, nom, adresse) {
         this.id = id
     }
 
-    constructor(id, articles, nom, adresse) {
+    constructor() {
 
+    }
+
+    getAll() {
+        return getAllShopsRepository();
     }
 
     getArticle(id) {
