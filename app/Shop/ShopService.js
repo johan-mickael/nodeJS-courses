@@ -1,7 +1,23 @@
 import { Shop } from "./Shop.js";
 
+const shop = new Shop();
+
 export const getAll = async (req, res) => {
-    const shop = new Shop();
     const data = await shop.getAll();
-    res.send(data);
+    res.status(201).json({
+        data: data
+    });
+}
+
+export const create = async (req, res) => {
+    try {
+        const shop = await shop.create(req);
+        res.status(201).json({
+            data: shop,
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
 }

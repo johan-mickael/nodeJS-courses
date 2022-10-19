@@ -1,9 +1,9 @@
 import express from 'express'
-import { getAll } from './ShopService.js';
+import { getAll, create } from './ShopService.js';
 
 const router = express.Router();
 
-router.get('/', getAll);
+router.route('/').get(getAll).post(create);
 
 export {
     router

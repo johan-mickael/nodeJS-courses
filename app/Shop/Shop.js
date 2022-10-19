@@ -1,4 +1,4 @@
-import { ShopRepository } from './ShopRepository.js'
+import { shopRepositoryModel as shopRepository } from './ShopRepository.js'
 
 export class Shop {
     id
@@ -9,43 +9,19 @@ export class Shop {
     shopRepository
 
     Shop
-        (id, articles, nom, adresse) {
+        (id) {
         this.id = id
     }
 
     constructor() {
-        this.shopRepository = new ShopRepository();
     }
 
-    getAll() {
-        return this.shopRepository.getAll();
+    async getAll() {
+        return await shopRepository.find();
     }
 
-    getArticle(id) {
-        return this.articles.find(val => {
-            val.id = id
-        })
+    async create(blog) {
+        return await shopRepository.create(blog)
     }
 
-
-    removeArticle(article) {
-        this.articles.find((value, index) => {
-            if (article == value) {
-                this.articles.splice(index, 1)
-            }
-        })
-        this.articles = this.article.filter((value) => {
-            article != value
-        })
-    }
-
-    removeArticle(id) {
-        this.articles = this.article.filter((value) => {
-            value.id != id
-        })
-    }
-
-    afficherArticles = () => {
-        this.articles.forEach((element, index) => console.log(element));
-    }
 }
