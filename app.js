@@ -1,4 +1,4 @@
-import { router as shopRouter } from './app/Shop/ShopApi.js'
+import { router as shopRouter } from './app/Shop/ShopController.js'
 
 import express from 'express'
 import mongoose from 'mongoose';
@@ -14,7 +14,6 @@ const connection = async () => {
 
 const db = mongoose.connection;
 
-// Shop routes
 app.use('/shops', shopRouter);
 
 export { app, connection, db }

@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { db, connection } from '../../app.js'
 
 export const ShopSchema = new mongoose.Schema({
     id: Number,

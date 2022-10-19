@@ -1,4 +1,4 @@
-import { ShopRepository } from './ShopRepositoryModel.js'
+import { ShopRepository } from './ShopRepository.js'
 
 export class Shop {
     id
@@ -18,13 +18,10 @@ export class Shop {
     }
 
     getAll() {
-        const data = Promise.resolve(this.shopRepository.getAll());
-        console.log(Promise.resolve(data))
-        return data;
+        return this.shopRepository.getAll();
     }
 
     getArticle(id) {
-        //méthode 1
         return this.articles.find(val => {
             val.id = id
         })
@@ -32,13 +29,11 @@ export class Shop {
 
 
     removeArticle(article) {
-        //méthode 1
         this.articles.find((value, index) => {
             if (article == value) {
                 this.articles.splice(index, 1)
             }
         })
-        //méthode 2
         this.articles = this.article.filter((value) => {
             article != value
         })
