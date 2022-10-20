@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const URI = `${process.env.MONGO_DRIVER}://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/${process.env.MONGO_DATABASE}`;
+
 const connection = () => {
     mongoose.connect(URI)
         .then(() => {

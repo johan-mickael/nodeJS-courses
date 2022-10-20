@@ -17,10 +17,10 @@ export default class ShopController {
 
     create = async (req: any, res: any) => {
         try {
-            await this.shopService.create(req.body);
+            const data = await this.shopService.create(req.body);
             res.status(201).json({
                 data: req.body,
-                message: "New shop saved."
+                message: `Shop ${data} created.`
             });
         } catch (err: any) {
             res.status(500).json({
@@ -51,6 +51,21 @@ export default class ShopController {
             const data = await this.shopService.update(id, req.body);
             res.status(201).json({
                 message: `Shop ${data} Updated.`
+            });
+        } catch (err: any) {
+            res.status(500).json({
+                error: err.message
+            })
+            console.log(err);
+        }
+    }
+
+    delete = async (req: any, res: any) => {
+        try {
+            const id = req.params.id;
+            const data = await this.shopService.delete(id);
+            res.status(201).json({
+                message: `Shop ${data} deleted.`
             });
         } catch (err: any) {
             res.status(500).json({

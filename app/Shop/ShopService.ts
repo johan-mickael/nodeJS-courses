@@ -17,4 +17,8 @@ export class ShopService {
     async update(id: String, shop: Shop) {
         return await shopModel.findByIdAndUpdate(id, shop)
     }
+
+    async delete(id: String) {
+        return await shopModel.findByIdAndDelete(id);
+    }
 }
