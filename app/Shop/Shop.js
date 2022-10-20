@@ -8,12 +8,12 @@ export class Shop {
     ownerName
     shopRepository
 
-    Shop
-        (id) {
+    Shop(id) {
         this.id = id
     }
 
     constructor() {
+
     }
 
     async getAll() {

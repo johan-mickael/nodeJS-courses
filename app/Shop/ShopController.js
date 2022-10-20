@@ -5,6 +5,4 @@ const router = express.Router();
 
 router.route('/').get(getAll).post(create);
 
-export {
-    router
-};
+export { router };

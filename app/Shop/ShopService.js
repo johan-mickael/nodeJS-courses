@@ -1,8 +1,7 @@
 import { Shop } from "./Shop.js";
 
-const shop = new Shop();
-
 export const getAll = async (req, res) => {
+    const shop = new Shop();
     const data = await shop.getAll();
     res.status(201).json({
         data: data
@@ -11,13 +10,17 @@ export const getAll = async (req, res) => {
 
 export const create = async (req, res) => {
     try {
-        const shop = await shop.create(req);
+        const shop = new Shop();
+        console.log(req.body)
+        await shop.create(req.body);
         res.status(201).json({
-            data: shop,
+            data: req.body,
+            message: "New shop saved."
         });
     } catch (err) {
         res.status(500).json({
             error: err.message
         })
+        throw err
     }
 }
