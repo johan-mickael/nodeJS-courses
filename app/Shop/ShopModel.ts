@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
+import { ArticleSchema } from "../Article/ArticleRepositoryModel";
 
 const shopConfig = {
     id: String,
     name: String,
     address: String,
-    ownerName: String
+    ownerName: String,
+    articles: [ArticleSchema]
 }
 
 const ShopSchema = new mongoose.Schema(shopConfig)

@@ -6,5 +6,4 @@ export const ArticleSchema = new mongoose.Schema({
     price: Number,
     quantity: Number,
     category: String,
-    ArticleRepositoryModel,
 })
