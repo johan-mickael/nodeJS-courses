@@ -1,4 +1,4 @@
-import { ShopService } from "./ShopService.js";
+import { ShopService } from "./ShopService";
 
 export default class ShopController {
     
@@ -8,21 +8,21 @@ export default class ShopController {
         this.shopService = new ShopService();
     }
     
-    getAll = async (req, res) => {
+    getAll = async (req:any, res:any) => {
         const data = await this.shopService.getAll();
         res.status(201).json({
             data: data
         });
     }
     
-    create = async (req, res) => {
+    create = async (req:any, res:any) => {
         try {
             await this.shopService.create(req.body);
             res.status(201).json({
                 data: req.body,
                 message: "New shop saved."
             });
-        } catch (err) {
+        } catch (err:any) {
             res.status(500).json({
                 error: err.message
             })

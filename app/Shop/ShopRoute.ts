@@ -1,5 +1,5 @@
 import express from 'express'
-import { default as ShopService } from './ShopController.js';
+import { default as ShopService } from './ShopController';
 
 const router = express.Router();
 

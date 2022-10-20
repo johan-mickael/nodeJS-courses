@@ -1,11 +1,6 @@
-import { shopModel } from './ShopModel.js'
+import { shopModel } from './ShopModel'
 
 export class ShopService {
-    id
-    articles
-    name
-    address
-    ownerName
     shopModel
 
     constructor() {
@@ -16,7 +11,7 @@ export class ShopService {
         return await this.shopModel.find();
     }
 
-    async create(blog) {
+    async create(blog:any) {
         return await this.shopModel.create(blog)
     }
 

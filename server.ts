@@ -1,8 +1,8 @@
-import { } from 'dotenv/config'
+require('dotenv').config();
 import * as http from 'http'
-import { app, connection } from './app.js'
+import { app, connection } from './app'
 
-const normalizePort = val => {
+const normalizePort = (val:any) => {
   const port = parseInt(val, 10);
 
   if (isNaN(port)) {
@@ -16,7 +16,7 @@ const normalizePort = val => {
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-const errorHandler = error => {
+const errorHandler = (error:any) => {
   if (error.syscall !== 'listen') {
     throw error;
   }
