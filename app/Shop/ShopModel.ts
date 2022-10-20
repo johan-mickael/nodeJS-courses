@@ -1,10 +1,19 @@
 import mongoose from "mongoose";
 
-const ShopSchema = new mongoose.Schema({
+const shopConfig = {
     id: String,
     name: String,
     address: String,
     ownerName: String
-})
+}
 
-export const shopModel = mongoose.model('shops', ShopSchema)
+const ShopSchema = new mongoose.Schema(shopConfig)
+
+export const shopModel = mongoose.model('shops', ShopSchema);
+
+export interface Shop {
+    id: String,
+    name: String,
+    address: String,
+    ownerName: String
+}

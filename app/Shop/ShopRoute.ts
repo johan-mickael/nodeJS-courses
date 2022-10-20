@@ -11,6 +11,7 @@ export default class ShopRoute {
     getRouter(): Router {
         const router = express.Router();
         router.route('/').get(this.controller.getAll).post(this.controller.create);
+        router.route('/:id').get(this.controller.getById).put(this.controller.update);
         return router;
     }
 }

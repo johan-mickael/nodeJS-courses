@@ -1,6 +1,7 @@
 require('dotenv').config();
 import * as http from 'http'
-import { app, connection } from './app'
+import { app } from './app'
+import { connection } from './db-utils';
 
 const normalizePort = (val: any) => {
   const port = parseInt(val, 10);
