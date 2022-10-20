@@ -1,4 +1,4 @@
-import { router as shopRouter } from './app/Shop/ShopController.js'
+import { router as shopRouter } from './app/Shop/ShopRoute.js'
 
 import express from 'express'
 import mongoose from 'mongoose';

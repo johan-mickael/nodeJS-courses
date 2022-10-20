@@ -7,4 +7,4 @@ const ShopSchema = new mongoose.Schema({
     ownerName: String
 })
 
-export const shopRepositoryModel = mongoose.model('shops', ShopSchema)
+export const shopModel = mongoose.model('shops', ShopSchema)

@@ -1,26 +1,23 @@
-import { Shop } from "./Shop.js";
+import { shopModel } from './ShopModel.js'
 
-export const getAll = async (req, res) => {
-    const shop = new Shop();
-    const data = await shop.getAll();
-    res.status(201).json({
-        data: data
-    });
-}
+export class ShopService {
+    id
+    articles
+    name
+    address
+    ownerName
+    shopModel
 
-export const create = async (req, res) => {
-    try {
-        const shop = new Shop();
-        console.log(req.body)
-        await shop.create(req.body);
-        res.status(201).json({
-            data: req.body,
-            message: "New shop saved."
-        });
-    } catch (err) {
-        res.status(500).json({
-            error: err.message
-        })
-        throw err
+    constructor() {
+        this.shopModel = shopModel;
     }
+
+    async getAll() {
+        return await this.shopModel.find();
+    }
+
+    async create(blog) {
+        return await this.shopModel.create(blog)
+    }
+
 }
