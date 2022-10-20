@@ -1,24 +1,24 @@
-import { Shop, shopModel } from './ShopModel'
+import { Shop, ShopModel } from './ShopModel'
 
 export class ShopService {
 
     async getAll() {
-        return await shopModel.find();
+        return await ShopModel.find();
     }
 
     async create(shop: Shop) {
-        return await shopModel.create(shop);
+        return await ShopModel.create(shop);
     }
 
     async getById(id: string) {
-        return await shopModel.findById(id);
+        return await ShopModel.findById(id);
     }
 
     async update(id: String, shop: Shop) {
-        return await shopModel.findByIdAndUpdate(id, shop)
+        return await ShopModel.findByIdAndUpdate(id, shop)
     }
 
     async delete(id: String) {
-        return await shopModel.findByIdAndDelete(id);
+        return await ShopModel.findByIdAndDelete(id);
     }
 }

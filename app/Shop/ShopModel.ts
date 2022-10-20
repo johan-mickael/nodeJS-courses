@@ -9,7 +9,7 @@ const shopConfig = {
 
 const ShopSchema = new mongoose.Schema(shopConfig)
 
-export const shopModel = mongoose.model('shops', ShopSchema);
+export const ShopModel = mongoose.model('shops', ShopSchema);
 
 export interface Shop {
     id: String,
