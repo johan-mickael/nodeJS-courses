@@ -19,9 +19,9 @@ const connection = () => {
 const db = mongoose.connection;
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 const shopRouter = new ShopRouter();
-app.use('/shops', shopRouter.getShopRoute());
+app.use('/shops', shopRouter.getRouter());
 
 export { app, connection, db }

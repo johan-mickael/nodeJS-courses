@@ -2,7 +2,7 @@ require('dotenv').config();
 import * as http from 'http'
 import { app, connection } from './app'
 
-const normalizePort = (val:any) => {
+const normalizePort = (val: any) => {
   const port = parseInt(val, 10);
 
   if (isNaN(port)) {
@@ -16,7 +16,7 @@ const normalizePort = (val:any) => {
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-const errorHandler = (error:any) => {
+const errorHandler = (error: any) => {
   if (error.syscall !== 'listen') {
     throw error;
   }
