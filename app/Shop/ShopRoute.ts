@@ -1,10 +1,16 @@
-import express from 'express'
-import { default as ShopService } from './ShopController';
+import express, { Router } from 'express'
+import { default as ShopController } from './ShopController';
 
-const router = express.Router();
+export default class ShopRoute {
+    controller: ShopController;
 
-const shopService = new ShopService();
+    constructor(){
+        this.controller = new ShopController();
+    }
 
-router.route('/').get(shopService.getAll).post(shopService.create);
-
-export { router };
+    getShopRoute(): Router {
+        const router = express.Router();
+        router.route('/').get(this.controller.getAll).post(this.controller.create);
+        return router;
+    }
+}
